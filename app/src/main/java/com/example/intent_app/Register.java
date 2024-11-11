@@ -27,15 +27,21 @@ public class Register extends AppCompatActivity {
         });
 
         Button registerBtn = findViewById(R.id.button_Register_Register);
+        EditText registerEmail = findViewById(R.id.editText_Register_Email);
+        EditText registerPass = findViewById(R.id.editText_Register_Password);
 
-        EditText registerName = findViewById(R.id.editView_Register_Name);
-        EditText registerEmail = findViewById(R.id.editView_Register_Email);
-        EditText registerPass = findViewById(R.id.editView_Register_Password);
+        Intent intent = new Intent(this, Login.class);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                String messageEmail = registerEmail.getText().toString();
+                String messagePass = registerPass.getText().toString();
+
+                intent.putExtra("RegisterEmail", messageEmail);
+                intent.putExtra("RegisterPass", messagePass);
+                startActivity(intent);
+                finish();
             }
         });
     }

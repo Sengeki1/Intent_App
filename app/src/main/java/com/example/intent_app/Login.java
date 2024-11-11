@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +26,17 @@ public class Login extends AppCompatActivity {
             return insets;
         });
 
+        String messageEmail = getIntent().getStringExtra("RegisterEmail");
+        String messagePass = getIntent().getStringExtra("RegisterPass");
+
+        EditText LoginEmail = findViewById(R.id.editText_Login_Email);
+        LoginEmail.setText(messageEmail);
+
+        EditText LoginPass = findViewById(R.id.editText_Login_Password);
+        LoginPass.setText(messagePass);
+
         Button btnLogin_ = findViewById(R.id.button_Login_Login);
+
         btnLogin_.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
